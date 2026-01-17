@@ -28,7 +28,7 @@ add_executable(OpenGL_Model_Loader
     src/VertexArray.cpp
     src/VertexBuffer.cpp
     src/IndexBuffer.cpp
-    
+    src/Device.cpp
 )
 
 target_include_directories(OpenGL_Model_Loader PRIVATE
