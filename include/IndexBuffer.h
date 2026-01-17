@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace gl
+namespace engine::gl
 {
     class IndexBuffer
     {

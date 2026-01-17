@@ -1,6 +1,6 @@
 #include "VertexBuffer.h"
 
-namespace gl
+namespace engine::gl
 {
 	void VertexBuffer::createVertexBuffer(size_t size, const void* data)
 	{

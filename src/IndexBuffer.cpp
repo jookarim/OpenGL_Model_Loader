@@ -1,6 +1,6 @@
 #include "IndexBuffer.h"
 
-namespace gl
+namespace engine::gl
 {
     static size_t indexTypeSize(GLenum type)
     {

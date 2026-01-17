@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <iostream>
 
-namespace gl
+namespace engine::gl
 {
 	Device::Device(GLFWwindow* window)
 	{

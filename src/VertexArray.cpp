@@ -2,7 +2,7 @@
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 
-namespace gl
+namespace engine::gl
 {
 	void VertexArray::createVertexArray()
 	{
@@ -64,6 +64,8 @@ namespace gl
 		glVertexArrayAttribFormat(m_id, attribIndex, size, type, normalized, relativeOffset);
 	}
 
-
-
+	void VertexArray::bind() const
+	{
+		glBindVertexArray(m_id);
+	}
 }
