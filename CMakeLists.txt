@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(Instancing_OpenGL LANGUAGES CXX)
+project(OpenGL_Model_Loader LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,20 +23,24 @@ target_include_directories(imgui PUBLIC
 )
 
 # ---------------- Game ----------------
-add_executable(Instancing_OpenGL
+add_executable(OpenGL_Model_Loader
     src/main.cpp
+    src/VertexArray.cpp
+    src/VertexBuffer.cpp
+    src/IndexBuffer.cpp
+    
 )
 
-target_include_directories(Instancing_OpenGL PRIVATE
+target_include_directories(OpenGL_Model_Loader PRIVATE
     include
     External/include    # GL, GLFW, GLM, ImGui, stb
 )
 
-target_link_directories(Instancing_OpenGL PRIVATE
+target_link_directories(OpenGL_Model_Loader PRIVATE
     External/lib
 )
 
-target_link_libraries(Instancing_OpenGL PRIVATE
+target_link_libraries(OpenGL_Model_Loader PRIVATE
     glfw3
     glew32
     opengl32
@@ -48,9 +52,9 @@ target_link_libraries(Instancing_OpenGL PRIVATE
 add_custom_target(copy_assets ALL
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/assets
-        $<TARGET_FILE_DIR:Instancing_OpenGL>/assets
+        $<TARGET_FILE_DIR:OpenGL_Model_Loader>/assets
 )
-add_dependencies(Instancing_OpenGL copy_assets)
+add_dependencies(OpenGL_Model_Loader copy_assets)
 
 # ---------------- DLLs ----------------
 if (WIN32)
@@ -59,10 +63,10 @@ if (WIN32)
     )
 
     if (GLEW_DLLS)
-        add_custom_command(TARGET Instancing_OpenGL POST_BUILD
+        add_custom_command(TARGET OpenGL_Model_Loader POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
                 ${GLEW_DLLS}
-                $<TARGET_FILE_DIR:Instancing_OpenGL>
+                $<TARGET_FILE_DIR:OpenGL_Model_Loader>
             COMMAND_EXPAND_LISTS
         )
     endif()
