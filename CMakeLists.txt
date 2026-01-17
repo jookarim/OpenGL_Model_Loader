@@ -29,7 +29,9 @@ add_executable(Shadow_Mapping_OpenGL
     src/VertexBuffer.cpp
     src/IndexBuffer.cpp
     src/Device.cpp
-    src/Window.cpp)
+    src/Window.cpp
+    src/Mesh.cpp
+)
 
 target_include_directories(Shadow_Mapping_OpenGL PRIVATE
     include
